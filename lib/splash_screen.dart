@@ -27,7 +27,6 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     );
 
     _controller.forward().whenComplete(() {
-      // الانتقال إلى الشاشة التالية بعد الانتهاء من الإنميشن
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) => HomeScreen()),
       );
@@ -58,7 +57,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
           Align(
             alignment: Alignment.bottomCenter,
             child: Image.asset(
-              "assets/Layer5.png", // استبدل هذا المسار بمسار الصورة الثابتة
+              "assets/Layer5.png", 
             ),
           ),
         ],
