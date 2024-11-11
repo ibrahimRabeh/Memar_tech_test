@@ -22,11 +22,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors().backgroundColors),
         useMaterial3: true,
       ),
-      home: ProfilePage(),
+      home: SplashScreen(),
       routes: {
         '/home':(context) => HomeScreen(),
         '/order':(context) => OrdersPage(),
-        '/chat':(context) => ChatPage()
+        '/chat':(context) => ChatPage(),
+        '/profile':(context) => ProfilePage()
       },
     );
   }

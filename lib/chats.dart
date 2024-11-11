@@ -17,6 +17,8 @@ class _ChatPageState extends State<ChatPage> {
         Navigator.of(context).pushNamed('/home');
       }else if(index == 2){
         Navigator.of(context).pushNamed('/order');
+      }else if(index ==0){
+        Navigator.of(context).pushNamed('/profile');
       }
     });
   }

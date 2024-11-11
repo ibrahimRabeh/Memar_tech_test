@@ -8,7 +8,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  int _currentIndex =1;
+  int _currentIndex =0;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -17,6 +17,8 @@ class _ProfilePageState extends State<ProfilePage> {
         Navigator.of(context).pushNamed('/home');
       }else if(index == 2){
         Navigator.of(context).pushNamed('/order');
+      }else if(index == 1){
+        Navigator.of(context).pushNamed('/chat');
       }
     });
   }
@@ -43,9 +45,12 @@ class _ProfilePageState extends State<ProfilePage> {
             Expanded(
               child: ListView(
                 children: [
-                  _buildListItem('التحالف الهندسي', 'طلب: تصميم عمارة', 5),
-                  _buildListItem('اعمار للاستشارات الهندسية', 'طلب: تصميم حديقة خارجية', 9),
-                  _buildListItem('اعمار للاستشارات الهندسية', 'طلب: تصميم حديقة خارجية',null),
+                  _buildListItem('الملف الشخصي',Colors.black),
+                  _buildListItem('المواعيد',Colors.black),
+                  _buildListItem('الاعدادات',Colors.black),
+                  _buildListItem('خيارات الدفع',Colors.black),
+                  _buildListItem('اتصل بنا',Colors.black),
+                  _buildListItem('تسجيل خروج',Colors.red),
 
                 ],
               ),
@@ -116,10 +121,10 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _buildListItem(String title, String subtitle, int ?num) {
+  Widget _buildListItem(String title,Color cols) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 13.0),
-      padding: EdgeInsets.all(6.0),
+      padding: EdgeInsets.all(14.0),
       decoration: BoxDecoration(
         color: AppColors().backgroundColors,
         borderRadius: BorderRadius.circular(60.0),
@@ -131,18 +136,7 @@ class _ProfilePageState extends State<ProfilePage> {
           Row(
             children: [
               Icon(Icons.arrow_back_ios_new),
-              if(num != null)
-                Container(
-            padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0),
-            decoration: BoxDecoration(
-              color: Colors.black,
-              borderRadius: BorderRadius.circular(20.0),
-            ),
-            child: Text(
-              "$num",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
+              
             ],
           ),
           
@@ -156,23 +150,13 @@ class _ProfilePageState extends State<ProfilePage> {
                 children: [
                   Text(
                     title,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,color: cols),
                   ),
+                  
                   SizedBox(width: 25,),
                 ],
               ),
-              SizedBox(height: 3.0),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    subtitle,
-                    style: TextStyle(fontSize: 16),
-                  ),
-                  SizedBox(width: 25,),
-
-                ],
-              ),
+              
             ],
           ),
           

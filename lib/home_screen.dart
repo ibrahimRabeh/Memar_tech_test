@@ -18,6 +18,8 @@ class _HomeScreenState extends State<HomeScreen> {
         Navigator.of(context).pushNamed('/order');
       }else if(index == 1){
         Navigator.of(context).pushNamed('/chat');
+      }else if(index ==0){
+        Navigator.of(context).pushNamed('/profile');
       }
     });
   }

@@ -28,9 +28,9 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
 
     _controller.forward().whenComplete(() {
       // الانتقال إلى الشاشة التالية بعد الانتهاء من الإنميشن
-      //Navigator.of(context).pushReplacement(
-        //MaterialPageRoute(builder: (_) => const HomeScreen()),
-      //);
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => HomeScreen()),
+      );
     });
   }
 

@@ -17,6 +17,8 @@ class _OrdersPageState extends State<OrdersPage> {
         Navigator.of(context).pushNamed('/home');
       }else if(index == 1){
         Navigator.of(context).pushNamed('/chat');
+      }else if(index ==0){
+        Navigator.of(context).pushNamed('/profile');
       }
     });
   }
