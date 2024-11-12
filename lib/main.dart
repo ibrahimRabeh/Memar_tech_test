@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:memar_tech_test/chats.dart';
+import 'package:memar_tech_test/createOrders.dart';
 import 'package:memar_tech_test/home_screen.dart';
 import 'package:memar_tech_test/orders.dart';
 import 'package:memar_tech_test/profile.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors().backgroundColors),
         useMaterial3: true,
       ),
-      home: SplashScreen(),
+      home: RequestScreen(),
       routes: {
         '/home':(context) => HomeScreen(),
         '/order':(context) => OrdersPage(),
