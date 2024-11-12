@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:memar_tech_test/utils/colors.dart';
 import 'home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -9,7 +8,8 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
 
@@ -57,7 +57,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
           Align(
             alignment: Alignment.bottomCenter,
             child: Image.asset(
-              "assets/Layer5.png", 
+              "assets/Layer5.png",
             ),
           ),
         ],
