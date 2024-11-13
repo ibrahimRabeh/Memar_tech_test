@@ -8,7 +8,6 @@ import 'package:memar_tech_test/details.dart';
 import 'package:memar_tech_test/home_screen.dart';
 import 'package:memar_tech_test/orders.dart';
 import 'package:memar_tech_test/profile.dart';
-import 'package:memar_tech_test/splash_screen.dart';
 import 'package:memar_tech_test/utils/colors.dart';
 
 void main() {
@@ -33,12 +32,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => HomeScreen(),
         '/order': (context) => OrdersPage(),
         '/chat': (context) => ChatPage(),
-        '/profile': (context) => ProfilePage(),
-        '/chatInterface': (context) => ChatInterface(),
-        '/appointments': (context) => AppointmentsPage(),
-        '/_ArchitectureFirmsPageState': (context) => ArchitectureFirmsPage(),
-        '/IndividualsPage': (context) => IndividualsPage(),
-        '/details': (context) => DetailsPage(),
+        '/profile': (context) => ProfilePage()
       },
     );
   }

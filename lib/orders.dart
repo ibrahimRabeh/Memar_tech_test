@@ -11,55 +11,99 @@ class OrdersPage extends StatefulWidget {
 }
 
 class _OrdersPageState extends State<OrdersPage> {
-  final int _currentIndex = 2;
+  int _currentIndex = 2;
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+      if (index == 3) {
+        Navigator.of(context).pushNamed('/home');
+      } else if (index == 1) {
+        Navigator.of(context).pushNamed('/chat');
+      } else if (index == 0) {
+        Navigator.of(context).pushNamed('/profile');
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors().backgroundColors,
+      appBar: AppBar(
         backgroundColor: AppColors().backgroundColors,
-        appBar: AppBar(
-          backgroundColor: AppColors().backgroundColors,
-        ),
-        body: Container(
-          padding: const EdgeInsets.all(16.0),
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(
-                  'assets/Layer1.png'), // Replace with your background image
-              fit: BoxFit.cover,
-            ),
+      ),
+      body: Container(
+        padding: EdgeInsets.all(16.0),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+                'assets/Layer1.png'), // Replace with your background image
+            fit: BoxFit.cover,
           ),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+        ),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _buildToggleButton('حرفيين', false),
+                SizedBox(width: 16.0),
+                _buildToggleButton('مكاتب هندسية', true),
+              ],
+            ),
+            Expanded(
+              child: ListView(
                 children: [
-                  _buildToggleButton('حرفيين', false),
-                  const SizedBox(width: 16.0),
-                  _buildToggleButton('مكاتب هندسية', true),
+                  _buildListItem(
+                      'التحالف الهندسي', 'طلب: تصميم عمارة', 'اعتماد الطلب'),
+                  _buildListItem('اعمار للاستشارات الهندسية',
+                      'طلب: تصميم حديقة خارجية', 'قيد الدراسة'),
+                  _buildListItem('النظار للاستشارات الهندسية',
+                      'طلب: تصميم فيلا', 'قيد التعديل'),
+                  _buildListItem('إحجاز للاستشارات الهندسية',
+                      'طلب: تصميم حديقة خارجية', 'نشط'),
+                  _buildListItem(
+                      'رحله البناء الهندسي', 'طلب: تصميم عمارة', 'تمت'),
+                  _buildListItem(
+                      'الأوج للاستشارات الهندسية', 'طلب: تصميم فيلا', 'ملغاة'),
                 ],
               ),
-              Expanded(
-                child: ListView(
-                  children: [
-                    _buildListItem(
-                        'التحالف الهندسي', 'طلب: تصميم عمارة', 'اعتماد الطلب'),
-                    _buildListItem('اعمار للاستشارات الهندسية',
-                        'طلب: تصميم حديقة خارجية', 'قيد الدراسة'),
-                    _buildListItem('النظار للاستشارات الهندسية',
-                        'طلب: تصميم فيلا', 'قيد التعديل'),
-                    _buildListItem('إحجاز للاستشارات الهندسية',
-                        'طلب: تصميم حديقة خارجية', 'نشط'),
-                    _buildListItem(
-                        'رحله البناء الهندسي', 'طلب: تصميم عمارة', 'تمت'),
-                    _buildListItem('الأوج للاستشارات الهندسية',
-                        'طلب: تصميم فيلا', 'ملغاة'),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
-        bottomNavigationBar: BottomNavBar(index: _currentIndex));
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: AppColors().backgroundColors,
+        items: [
+          BottomNavigationBarItem(
+            backgroundColor: AppColors().backgroundColors,
+            icon: Icon(Icons.account_circle_outlined),
+            label: 'الحساب',
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: AppColors().backgroundColors,
+            icon: Icon(Icons.message_outlined),
+            label: 'المحادثات',
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: AppColors().backgroundColors,
+            icon: Icon(Icons.receipt_outlined),
+            label: 'الطلبات',
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: AppColors().backgroundColors,
+            icon: const Icon(Icons.home_filled),
+            label: 'الرئيسية',
+          ),
+        ],
+        currentIndex: _currentIndex,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.black54,
+        showUnselectedLabels: true,
+        onTap: _onItemTapped,
+      ),
+    );
   }
 
   Widget _buildToggleButton(String label, bool isSelected) {
