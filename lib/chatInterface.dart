@@ -15,11 +15,11 @@ class _ChatInterfaceState extends State<ChatInterface> {
   final TextEditingController _controller = TextEditingController();
   final List<Map<String, dynamic>> _messages = [
     {'content': 'صوره او فيديو', 'isUser': false, 'ismessage': false},
-    {'content': 'الصك الالكتروني.PDF', 'isUser': false, 'ismessage': false},
-    {'content': 'هذه نسخه من الصك', 'isUser': false},
-    {'content': 'نموذج مبدئي.PDF', 'isUser': true, 'ismessage': false},
-    {'content': 'هذه نسخه من الملف', 'isUser': true},
-    {'content': 'شكرا لك', 'isUser': false},
+    {'content': 'PDF File', 'isUser': false, 'ismessage': false},
+    {'content': 'Can you do this?', 'isUser': false},
+    {'content': 'Prototype', 'isUser': true, 'ismessage': false},
+    {'content': 'Does this follow your vision?', 'isUser': true},
+    {'content': 'Yes, thank you', 'isUser': false},
   ];
   @override
   Widget build(BuildContext context) {

@@ -22,7 +22,7 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
     },
     {
       'date': '2024-6-24',
-      'time': '8:00 pm',
+      'time': '10:00 pm',
       'title': 'احمد علي',
       'isBusiness': false
     },
@@ -30,44 +30,68 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors().backgroundColors,
-      appBar: AppBar(
+    return SafeArea(
+      child: Scaffold(
         backgroundColor: AppColors().backgroundColors,
-        title: const Text('المواعيد',
-            style: TextStyle(color: Colors.black, fontSize: 24)),
-        centerTitle: true,
-        elevation: 0,
-      ),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-                'assets/Layer1.png'), // Replace with your background image
-            fit: BoxFit.cover,
+        appBar: AppBar(
+          backgroundColor: AppColors().backgroundColors,
+          title: const Text('Appointments',
+              style: TextStyle(color: Colors.black, fontSize: 24)),
+          centerTitle: true,
+          elevation: 0,
+        ),
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                  'assets/Layer1.png'), // Replace with your background image
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Column(
+            children: [
+              _buildStatusBar(),
+              Expanded(
+                child: ListView.builder(
+                  padding: const EdgeInsets.all(16.0),
+                  itemCount: appointments.length,
+                  itemBuilder: (context, index) {
+                    final appointment = appointments[index];
+                    return _buildAppointmentCard(
+                        appointment['date']!,
+                        appointment['time']!,
+                        appointment['title']!,
+                        appointment['isBusiness']!);
+                  },
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 16.0, horizontal: 32.0),
+                  backgroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                  ),
+                  elevation: 6, // Adds a shadow for depth
+                  shadowColor:
+                      Colors.grey.withOpacity(0.3), // Subtle shadow color
+                ),
+                child: const Text(
+                  'Make an Appointment',
+                  style: TextStyle(
+                    color: Color(0xFFD2D6D2),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold, // Makes text bolder
+                  ),
+                ),
+              )
+            ],
           ),
         ),
-        child: Column(
-          children: [
-            _buildStatusBar(),
-            Expanded(
-              child: ListView.builder(
-                padding: const EdgeInsets.all(16.0),
-                itemCount: appointments.length,
-                itemBuilder: (context, index) {
-                  final appointment = appointments[index];
-                  return _buildAppointmentCard(
-                      appointment['date']!,
-                      appointment['time']!,
-                      appointment['title']!,
-                      appointment['isBusiness']!);
-                },
-              ),
-            ),
-          ],
-        ),
+        bottomNavigationBar: BottomNavBar(index: _currentIndex),
       ),
-      bottomNavigationBar: BottomNavBar(index: _currentIndex),
     );
   }
 
@@ -128,15 +152,21 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  // remove this appointment from the list
+                  setState(() {
+                    appointments
+                        .removeWhere((element) => element['title'] == title);
+                  });
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFF1C1C1C),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30.0),
                   ),
                 ),
-                child: const Text('الغاء الموعد',
-                    style: TextStyle(color: Colors.white)),
+                child:
+                    const Text('cancel', style: TextStyle(color: Colors.white)),
               ),
               ElevatedButton(
                 onPressed: () {},
@@ -146,7 +176,7 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
                     borderRadius: BorderRadius.circular(30.0),
                   ),
                 ),
-                child: const Text('تعديل الموعد',
+                child: const Text('reschedule',
                     style: TextStyle(color: Colors.black)),
               ),
             ],

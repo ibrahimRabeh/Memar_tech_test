@@ -11,99 +11,55 @@ class OrdersPage extends StatefulWidget {
 }
 
 class _OrdersPageState extends State<OrdersPage> {
-  int _currentIndex = 2;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-      if (index == 3) {
-        Navigator.of(context).pushNamed('/home');
-      } else if (index == 1) {
-        Navigator.of(context).pushNamed('/chat');
-      } else if (index == 0) {
-        Navigator.of(context).pushNamed('/profile');
-      }
-    });
-  }
-
+  final int _currentIndex = 2;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors().backgroundColors,
-      appBar: AppBar(
         backgroundColor: AppColors().backgroundColors,
-      ),
-      body: Container(
-        padding: EdgeInsets.all(16.0),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-                'assets/Layer1.png'), // Replace with your background image
-            fit: BoxFit.cover,
-          ),
+        appBar: AppBar(
+          backgroundColor: AppColors().backgroundColors,
         ),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                _buildToggleButton('حرفيين', false),
-                SizedBox(width: 16.0),
-                _buildToggleButton('مكاتب هندسية', true),
-              ],
+        body: Container(
+          padding: const EdgeInsets.all(16.0),
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                  'assets/Layer1.png'), // Replace with your background image
+              fit: BoxFit.cover,
             ),
-            Expanded(
-              child: ListView(
+          ),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _buildListItem(
-                      'التحالف الهندسي', 'طلب: تصميم عمارة', 'اعتماد الطلب'),
-                  _buildListItem('اعمار للاستشارات الهندسية',
-                      'طلب: تصميم حديقة خارجية', 'قيد الدراسة'),
-                  _buildListItem('النظار للاستشارات الهندسية',
-                      'طلب: تصميم فيلا', 'قيد التعديل'),
-                  _buildListItem('إحجاز للاستشارات الهندسية',
-                      'طلب: تصميم حديقة خارجية', 'نشط'),
-                  _buildListItem(
-                      'رحله البناء الهندسي', 'طلب: تصميم عمارة', 'تمت'),
-                  _buildListItem(
-                      'الأوج للاستشارات الهندسية', 'طلب: تصميم فيلا', 'ملغاة'),
+                  _buildToggleButton('Designers', false),
+                  const SizedBox(width: 16.0),
+                  _buildToggleButton('Architect Firms', true),
                 ],
               ),
-            ),
-          ],
+              Expanded(
+                child: ListView(
+                  children: [
+                    _buildListItem(
+                        'التحالف الهندسي', 'Request: Design room', 'Approve'),
+                    _buildListItem('اعمار للاستشارات الهندسية',
+                        'Request: Design room', 'Under study'),
+                    _buildListItem(
+                        'ALC Engineering', 'Request: Design room', 'modifying'),
+                    _buildListItem('إحجاز للاستشارات الهندسية',
+                        'Request: Design apartment', 'Active'),
+                    _buildListItem('رحله البناء الهندسي',
+                        'Request: Design apartment', 'Done'),
+                    _buildListItem('الأوج للاستشارات الهندسية',
+                        'Request: Design room', 'cancelled'),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: AppColors().backgroundColors,
-        items: [
-          BottomNavigationBarItem(
-            backgroundColor: AppColors().backgroundColors,
-            icon: Icon(Icons.account_circle_outlined),
-            label: 'الحساب',
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: AppColors().backgroundColors,
-            icon: Icon(Icons.message_outlined),
-            label: 'المحادثات',
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: AppColors().backgroundColors,
-            icon: Icon(Icons.receipt_outlined),
-            label: 'الطلبات',
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: AppColors().backgroundColors,
-            icon: const Icon(Icons.home_filled),
-            label: 'الرئيسية',
-          ),
-        ],
-        currentIndex: _currentIndex,
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.black54,
-        showUnselectedLabels: true,
-        onTap: _onItemTapped,
-      ),
-    );
+        bottomNavigationBar: BottomNavBar(index: _currentIndex));
   }
 
   Widget _buildToggleButton(String label, bool isSelected) {
@@ -169,7 +125,7 @@ class _OrdersPageState extends State<OrdersPage> {
                   Text(
                     title,
                     style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.bold),
+                        fontSize: 14, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
                     width: 25,

@@ -45,22 +45,22 @@ class _BottomNavBarState extends State<BottomNavBar> {
         BottomNavigationBarItem(
           backgroundColor: AppColors().backgroundColors,
           icon: const Icon(Icons.account_circle_outlined),
-          label: 'الحساب',
+          label: 'Account',
         ),
         BottomNavigationBarItem(
           backgroundColor: AppColors().backgroundColors,
           icon: const Icon(Icons.message_outlined),
-          label: 'المحادثات',
+          label: 'Chats',
         ),
         BottomNavigationBarItem(
           backgroundColor: AppColors().backgroundColors,
           icon: const Icon(Icons.receipt_outlined),
-          label: 'الطلبات',
+          label: 'Orders',
         ),
         BottomNavigationBarItem(
           backgroundColor: AppColors().backgroundColors,
           icon: const Icon(Icons.home_filled),
-          label: 'الرئيسية',
+          label: 'Home',
         ),
       ],
       currentIndex: _currentIndex,

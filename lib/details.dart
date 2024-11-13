@@ -6,17 +6,18 @@ class DetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final args =
         ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
-    final String name = args['name'];
-    final double rating = args['rating'];
-    final String email = 'example@example.com'; // Replace with actual data
-    final String phone = '+966 555 555 555'; // Replace with actual data
-    final String description =
-        'هذا الوصف يحتوي على معلومات حول المكتب الهندسي أو الفرد.';
+    final String name = args['name'] ?? 'Architecture Firm';
+    final double rating = args['rating'] ?? 4.5;
+    final String email = args['email'] ?? 'info@architecturefirm.com';
+    final String phone = args['phone'] ?? '0538693873';
+    final String description = args['description'] ??
+        'This firm provides comprehensive engineering services and creative solutions for building and designing projects.';
 
     return Scaffold(
       backgroundColor: AppColors().backgroundColors,
       appBar: AppBar(
-        title: const Text("التفاصيل", style: TextStyle(color: Colors.black87)),
+        title: const Text("Office Details",
+            style: TextStyle(color: Colors.black87)),
         backgroundColor: AppColors().backgroundColors,
         iconTheme: const IconThemeData(color: Colors.black87),
       ),
@@ -34,7 +35,6 @@ class DetailsPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Top Information Card limited to 40% of screen height
               Container(
                 padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
@@ -43,7 +43,7 @@ class DetailsPage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 constraints: BoxConstraints(
-                  maxHeight: MediaQuery.of(context).size.height * 0.2,
+                  maxHeight: MediaQuery.of(context).size.height * 0.3,
                 ),
                 child: Column(
                   children: [
@@ -110,7 +110,7 @@ class DetailsPage extends StatelessWidget {
                                 Navigator.of(context).pushNamed('/rating');
                               },
                               child: const Text(
-                                "التقييم",
+                                "Rate",
                                 style: TextStyle(
                                   color: Colors.blue,
                                   fontSize: 16,
@@ -131,7 +131,7 @@ class DetailsPage extends StatelessWidget {
                         color: Colors.black87,
                         height: 1.5,
                       ),
-                      textAlign: TextAlign.right,
+                      textAlign: TextAlign.left,
                     ),
                     const Spacer(),
 
@@ -147,7 +147,7 @@ class DetailsPage extends StatelessWidget {
                               backgroundColor: Colors.black87,
                             ),
                             child: const Text(
-                              "دردشة",
+                              "Chat",
                               style: TextStyle(color: Colors.white),
                             ),
                           ),
@@ -162,7 +162,7 @@ class DetailsPage extends StatelessWidget {
                               backgroundColor: Colors.black87,
                             ),
                             child: const Text(
-                              "تحديد موعد",
+                              "Book session",
                               style: TextStyle(color: Colors.white),
                             ),
                           ),
@@ -177,7 +177,7 @@ class DetailsPage extends StatelessWidget {
                               backgroundColor: Colors.black87,
                             ),
                             child: const Text(
-                              "الموقع",
+                              "Address",
                               style: TextStyle(color: Colors.white),
                             ),
                           ),
