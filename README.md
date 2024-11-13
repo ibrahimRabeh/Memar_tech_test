@@ -10,7 +10,6 @@ Memartech is an innovative platform designed to bridge the gap between customers
 
 ### 2. Appointments & Scheduling
    - **Easy Scheduling**: Book appointments with architecture firms or individual designers directly through the app.
-   - **Calendar Integration**: Manage upcoming appointments and receive notifications to ensure you stay on schedule.
 
 ### 3. Consultation Services
    - **Memartech Consultation Team**: For extra guidance, users can schedule consultations with Memartech team members who can help with selecting a designer, understanding services, and more.
@@ -21,11 +20,9 @@ Memartech is an innovative platform designed to bridge the gap between customers
 
 ### 5. Chat & Communication
    - **Direct Messaging**: Communicate directly with your chosen designer or firm for updates, queries, and collaboration.
-   - **Customer Support**: Reach out to Memartech support through an integrated chat feature for any assistance you may need.
 
 ## Tech Stack
 
-- **Frontend**: Developed using React and TypeScript, ensuring a responsive and dynamic user experience.
-- **Backend**: Powered by Firebase for robust authentication, database management, and real-time data synchronization.
+- **Frontend**: Developed using dart, ensuring a responsive and dynamic user experience.
 - **Mobile Compatibility**: Built using Flutter, making it accessible and optimized for mobile devices.
 
