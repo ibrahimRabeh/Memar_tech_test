@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard with Notifications</title>
+  <link rel="stylesheet" href="./web/dash/style.css">
+</head>
+<body>
+  <div class="notification-component">
+    <header class="header">
+      <div class="main-content">
+        <!-- Search Bar -->
+        <div class="search-bar-container">
+          <img src="https://cdn.builder.io/api/v1/image/assets/144243cd60f04d22810ba362ac728dfc/27c426ac18d528bfab427e916da8f2ed4f52f467eb8caddf858826e7e5b07401?apiKey=144243cd60f04d22810ba362ac728dfc&"
+               alt="Profile Icon" class="profile-icon">
+          <form class="search-form">
+            <img src="https://cdn.builder.io/api/v1/image/assets/144243cd60f04d22810ba362ac728dfc/bb122a9c149415e5742f2389c44c74b507178b219e968e6cf85b3e0e87c192b3?apiKey=144243cd60f04d22810ba362ac728dfc&"
+                 alt="Search Icon" class="search-icon">
+            <label for="searchInput" class="sr-only"></label>
+            <input type="text" id="searchInput" placeholder="Search" class="search-input">
+          </form>
+        </div>
+
+        <!-- Notification List -->
+        <section class="notification-list">
+          <h2 class="notification-title">Notifications</h2>
+          <div class="notification-item">The store has been updated with the latest features</div>
+          <div class="notification-item">New order received</div>
+          <div class="notification-item">25 unread conversations</div>
+          <div class="notification-item">Unread message from support</div>
+          <div class="notification-item">Ad campaign request sent successfully</div>
+          <div class="notification-item">Reports generated successfully</div>
+          <div class="notification-item">100 orders completed successfully</div>
+        </section>
+      </div>
+      <div class="center-card" >
+    <div class="top-section">
+        <div class="top-card"style="display: flex; flex-direction: column;""><div style="font-size: 25px;">Number of Orders</div><div>234</div></div>
+        <div class="top-card" style="display: flex; flex-direction: column;"><div style="font-size: 25px;">Rating</div>4.3</div>
+        <div class="top-card" style="display: flex; flex-direction: column;"><div style="font-size: 25px;">Revenue</div>2000SAR</div>
+    </div>
+    
+    <div class="legend-wrapper"style="display:flex; flex-direction: row;">
+        <section class="legends">
+            <div class="legend-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/144243cd60f04d22810ba362ac728dfc/91168b00a072d82ffd4fc94586d7d0b7ab20b8a76a9a70ae43aaf309600af1c7?apiKey=144243cd60f04d22810ba362ac728dfc&" alt="Full Building Design - Tower" class="legend-icon">
+                <span>Full Building Design - Tower</span>
+            </div>
+            <div class="legend-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/144243cd60f04d22810ba362ac728dfc/73488129ddb08d1fcade8d9d265760386f1e3b6957276fcb2b9ab91a00238e00?apiKey=144243cd60f04d22810ba362ac728dfc&" alt="Full Building Design - Villa" class="legend-icon">
+                <span>Full Building Design - Villa</span>
+            </div>
+            <div class="legend-item">
+                <img src="https://cdn.builder.io/api/v1/image/assets/144243cd60f04d22810ba362ac728dfc/5b4e54fa98f476a8d60a9940261d2589a0a24ed8c8c4e4914b9dee7727436ee2?apiKey=144243cd60f04d22810ba362ac728dfc&" alt="Full Building Design - Apartment" class="legend-icon">
+                <span>Full Building Design - Apartment</span>
+            </div>
+        </section>
+        <div class="card-image">
+          <img src="./web/dash/MainChart.png" alt="Main Image" class="main-image" >
+      </div>
+    </div>
+
+    <!-- Right Section: Image -->
+  
+</div>
+
+
+      <!-- Sidebar -->
+      <nav class="sidebar">
+            <img src="./web/dash/Sec4.png" alt="Logo" class="sidebar-logo" style="margin-bottom: 20px; filter: brightness(5);">
+        <div class="menu-item Dash"style="font-size: larger;  background-color: #333333; border-radius: 10px; padding: 10px; margin-top: 10px;
+    border-radius: 10px;"">Dashboard</div>
+        <div class="menu-item Orders">Orders</div>
+        <div class="menu-item">Clients</div>
+        <div class="menu-item">Messages</div>
+        <div class="menu-item">Settings</div>
+        <div class="menu-item">Ad Campaigns</div>
+        <div class="menu-item">Support</div>
+        <div class="logout">Log Out</div>
+      </nav>
+      
+      
+    </header>
+
+    <!-- Main Dashboard Content with Card, Legend and Image -->
+
+    <!-- Background Image -->
+    <img src="./web/dash/Sec4.png" alt="Logo" class="sidebar-logo" style="margin-bottom: 20px; filter: brightness(5);">
+  </div>
+</body>
+<script src="./web/dash/main.js"></script>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" >
+        <!-- Left Column: Search and Legend (3/4 of screen) -->
+        <div class="left-column" style="flex: 3; display: flex; flex-direction: column; padding: 10px;">
+            <!-- Search Bar -->
+            <div class="search-bar-container" style="display: flex; align-items: center; margin-bottom: 10px;">
+                <form class="search-form" style="display: flex; align-items: center;">
+                    <label for="searchInput" class="sr-only"></label>
+                    <input type="text" id="searchInput" placeholder="Search" class="search-input" style="flex: 1; margin-left: 10px;">
+                </form>
+            </div>
+
+            <!-- Legend and Dashboard Information -->
+            <div class="center-card" style="flex: 1; padding: 10px;">
+                <!-- Top Info Section -->
+                <div class="top-section" style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                    <div class="top-card" style="display: flex; flex-direction: column;">
+                        <div style="font-size: 25px;">Show Price</div>
+                        <div>5</div>
+                    </div>
+                    <div class="top-card" style="display: flex; flex-direction: column;">
+                        <div style="font-size: 25px;">In Progress</div>
+                        <div>31</div>
+                    </div>
+                    <div class="top-card" style="display: flex; flex-direction: column;">
+                        <div style="font-size: 25px;">Done</div>
+                        <div>214</div>
+                    </div>
+                </div>
+
+                <!-- Legend Section -->
+                <div class="legend-wrapper">
+                    <h2 class="legend-title">Orders Details</h2>
+                    <section class="legends" style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center; padding: 10px; background-color: #f8f8f8;">
+                        <!-- Legend Item: Order Number -->
+                        <div class="legend-item" style="display: flex; flex-direction: column; align-items: center; margin: 10px;">
+                            <span class="legend-title"><strong>Order Num</strong></span>
+                            <span id="openPopupButton" style="color: grey;">#001</span>
+                            <span class="legend-value" style="color: grey;">#002</span>
+                            <span class="legend-value" style="color: grey;">#003</span>
+                            <span class="legend-value" style="color: grey;">#004</span>
+                            <span class="legend-value" style="color: grey;">#005</span>
+                            <span class="legend-value" style="color: grey;">#006</span>
+                            <span class="legend-value" style="color: grey;">#007</span>
+                            <span class="legend-value" style="color: grey;">#008</span>
+                            <span class="legend-value" style="color: grey;">#009</span>
+                        </div>
+
+                        <!-- Legend Item: Order Date -->
+                        <div class="legend-item" style="display: flex; flex-direction: column; align-items: center; margin: 10px;">
+                            <span class="legend-title"><strong>Order Date</strong></span>
+                            <span class="legend-value" style="color: grey;">2024-11-13</span>
+                            <span class="legend-value" style="color: grey;">2024-11-12</span>
+                            <span class="legend-value" style="color: grey;">2024-12-11</span>
+                            <span class="legend-value" style="color: grey;">2024-11-13</span>
+                            <span class="legend-value" style="color: grey;">2025-11-12</span>
+                            <span class="legend-value" style="color: grey;">2025-11-14</span>
+                            <span class="legend-value" style="color: grey;">2024-11-1</span>
+                            <span class="legend-value" style="color: grey;">2024-11-2</span>
+                            <span class="legend-value" style="color: grey;">2024-11-30</span>
+                        </div>
+
+                        <!-- Legend Item: Order Type -->
+                        <div class="legend-item" style="display: flex; flex-direction: column; align-items: center; margin: 10px;">
+                            <span class="legend-title"><strong>Order Type</strong></span>
+                            <span class="legend-value" style="color: grey;">Design - Room</span>
+                            <span class="legend-value" style="color: grey;">Design - Villa</span>
+                            <span class="legend-value" style="color: grey;">Design - Apartment</span>
+                            <span class="legend-value" style="color: grey;">Design - Room</span>
+                            <span class="legend-value" style="color: grey;">Design - Villa</span>
+                            <span class="legend-value" style="color: grey;">Design - Room</span>
+                            <span class="legend-value" style="color: grey;">Design - Apartment</span>
+                            <span class="legend-value" style="color: grey;">Design - Apartment</span>
+                            <span class="legend-value" style="color: grey;">Design - Villa</span>
+                        </div>
+
+                        <!-- Legend Item: Order Condition -->
+                        <div class="legend-item" style="display: flex; flex-direction: column; align-items: center; margin: 10px;">
+                            <span class="legend-title"><strong>Order Condition</strong></span>
+                            <span class="legend-value" style="color: grey;">Pending</span>
+                            <span class="legend-value" style="color: grey;">Completed</span>
+                            <span class="legend-value" style="color: grey;">In Progress</span>
+                            <span class="legend-value" style="color: grey;">Pending</span>
+                            <span class="legend-value" style="color: grey;">Completed</span>
+                            <span class="legend-value" style="color: grey;">Pending</span>
+                            <span class="legend-value" style="color: grey;">In Progress</span>
+                            <span class="legend-value" style="color: grey;">In Progress</span>
+                            <span class="legend-value" style="color: grey;">Completed</span>
+                        </div>
+                    </section>
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Sidebar Menu (1/4 of screen) -->
+        <nav class="sidebar" style="flex: 0.25; display: flex; flex-direction: column; padding: 20px; height:80%;margin-top: 7%;">
+            <img src="./Sec4.png" alt="Logo" class="sidebar-logo" style="margin-bottom: 20px; filter: brightness(5);">
+            <div class="menu-item Dash" style=" color: white;">Dashboard</div>
+            <div class="menu-item Orders" style="font-size: larger; background-color: #333333; border-radius: 10px; padding: 10px; margin-top: 10px;">Orders</div>
+            <div class="menu-item" style="margin-top: 10px;">Clients</div>
+            <div class="menu-item" style="margin-top: 10px;">Messages</div>
+            <div class="menu-item" style="margin-top: 10px;">Settings</div>
+            <div class="menu-item" style="margin-top: 10px;">Ad Campaigns</div>
+            <div class="menu-item" style="margin-top: 10px;">Support</div>
+            <div class="logout" style="margin-top: 20px; color: red;">Log Out</div>
+        </nav>
+
+        <img src="./Layer5.png"
+        alt="Background Image" class="background-image">
+    </div>
+
+    <div class="order-details" id="orderPopup" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); z-index: 10;">
+        <h2>Internal Design: Apartment</h2>
+        <div style="display: flex; flex-direction: column;">
+            <p><strong>Order Description:</strong>Design a 4x5m modern room with open sides on two walls, white walls, and wood flooring. Include a king-sized bed centered against one wall, flanked by two bedside tables. In one corner, place a desk with a PC, monitor, and an ergonomic chair. Along another wall, add a large, sleek wardrobe covering almost the entire length. The room should feel spacious and minimalistic, with ample natural light and a cozy yet modern ambiance.</p>
+            <div class="image-section" style="display: flex; align-items: center; margin-top: 10px;">
+                <p><strong>Download Model:</strong></p>
+                <a href="./Design_a_4x5m_modern__1113102941_refine_fbx.zip" download>
+                    Download 3D Model (.zip file)
+                </a>
+            </div>
+        </div>
+        <span class="close" onclick="togglePopup(false)" style="position: absolute; top: 10px; right: 10px; cursor: pointer; font-size: 20px;">&times;</span>
+    </div>
+</div>
+    
+</body>
+<script src="main.js"></script>
+</html>
