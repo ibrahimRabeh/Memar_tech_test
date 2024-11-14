@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
             ColorScheme.fromSeed(seedColor: AppColors().backgroundColors),
         useMaterial3: true,
       ),
+      debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
       routes: {
         '/home': (context) => HomeScreen(),
